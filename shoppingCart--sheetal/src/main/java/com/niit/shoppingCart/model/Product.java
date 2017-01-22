@@ -4,8 +4,10 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.Transient;
 
 import org.springframework.stereotype.Component;
+import org.springframework.web.multipart.MultipartFile;
 
 @Entity
 @Component
@@ -15,6 +17,7 @@ public class Product {
       private String id;
       private String name;
       private String description;
+      private int price;
       private String category_id;
       private String supplier_id;
       
@@ -29,6 +32,12 @@ public class Product {
       
       
       
+	public int getPrice() {
+		return price;
+	}
+	public void setPrice(int price) {
+		this.price = price;
+	}
 	public String getCategory_id() {
 		return category_id;
 	}
@@ -73,6 +82,16 @@ public class Product {
 	}
 
 	
+	@Transient
+	private MultipartFile image;
+
+
+	public MultipartFile getImage() {
+		return image;
+	}
+	public void setImage(MultipartFile image) {
+		this.image = image;
+	}
 	
 	}
 
