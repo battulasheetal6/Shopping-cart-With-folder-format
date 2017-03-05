@@ -1,6 +1,7 @@
 com\niit\shoppingCart\model\Category.class
 com\niit\shoppingCart\dao\ProductDAO.class
 com\niit\shoppingCart\controller\HomeController.class
+com\niit\shoppingCart\dao\CartDAO.class
 com\niit\shoppingCart\dao\SupplierDAOImpl.class
 com\niit\shoppingCart\controller\CategoryController.class
 com\niit\shoppingCart\controller\ProductController.class
@@ -8,8 +9,11 @@ com\niit\shoppingCart\controller\SupplierController.class
 com\niit\shoppingCart\dao\SupplierDAO.class
 com\niit\shoppingCart\dao\UserDAOImpl.class
 com\niit\shoppingCart\model\Product.class
+com\niit\shoppingCart\controller\CartController.class
+com\niit\shoppingCart\dao\CartDAOImpl.class
 com\niit\shoppingCart\dao\ProductDAOImpl.class
 com\niit\shoppingCart\config\ApplicationContext.class
+com\niit\shoppingCart\model\Cart.class
 com\niit\shoppingCart\model\Supplier.class
 com\niit\shoppingCart\dao\CategoryDAO.class
 com\niit\shoppingCart\dao\UserDAO.class

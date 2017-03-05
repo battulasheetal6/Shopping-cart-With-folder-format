@@ -140,8 +140,26 @@ public class ProductController {
 	}
 	
 	
+	@RequestMapping(value="product_get-{id}")
+
+	public String getSelectedProduct(@PathVariable("id") String id,Model model)
+
+	{
+
+		model.addAttribute("selectedProduct",productDAO.getProduct(id));
+
+		model.addAttribute("categoryList",this.categoryDAO.list());
+
+		return "item";
+
 	
-	
+
+
+	}
+
+
+
+
 	
 	
 	

@@ -10,6 +10,13 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Product..</title>
+<style>
+body{
+background-image: url(resources/images/bgk02.jpg); 
+background-size:     cover;                      
+    background-repeat:   no-repeat;
+    }
+</style>
 </head>
 <body>
 

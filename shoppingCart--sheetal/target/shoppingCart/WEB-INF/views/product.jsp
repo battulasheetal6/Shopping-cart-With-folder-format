@@ -13,112 +13,99 @@
 </head>
 <body>
 
-<c:url var="addAction"  value="/product/add"></c:url>
-<form:form method="POST" commandName="product" action="${addAction}" >
-<form:label style="color:#000000" path="id"><spring:message text="ID"/></form:label>
-		<c:choose>
-			<c:when test="${!empty product.id }">
-				<form:input style="background-color:#F5F5DC;border:0.25px solid black" path="id" disabled="true" readonly="true"/>
-			</c:when>
-			<c:otherwise>
-				<form:input style="background-color:#F5F5DC;border:0.25px solid black" path="id"  pattern=".{4,7}" required="true" title="id should be between 4 to 7 characters"/>
-				</c:otherwise>
-				</c:choose>
-				 <br><br>
-    
-      <form:input path="id" hidden="true"/>
-    
-    <form:label style="color:#000000" path="id"><spring:message text="NAME"/></form:label>
-    <form:input type="text" name="name" path="name"/><br>
-     <br><br>
-    
-    <form:label style="color:#000000" path="id"><spring:message text="DESCRIPTION"/></form:label>
-    <form:input type="text" name="description" path="description"/><br>
-    
-     <br><br>
-    
-   <c:if test="${!empty product.name }">
-								<input style= "align:middle" class="btn btn-warning btn-md" type="submit" value="<spring:message text="Edit Product"/>"/> 
-								</c:if> 
-								<c:if test="${empty product.name }"> 
- 									<input style= "align:middle"  class="btn btn-info btn-md" type="submit" value="<spring:message text="Add Product"/>"/> 
- 								</c:if> 
-</form:form>
- 
-    
+<form:form action="product_add" commandName="product" method="post" enctype="multipart/form-data">
+	<table cellpadding="5px">
+		<tr>
+		<td>Product ID</td>
+	<c:choose>
+		<c:when test="${!empty product.id}">
+		<td><form:input type="text" path="id" name="id" disabled="true" readonly="true"/></td>
+		</c:when>
+		<c:otherwise>
+		<td><form:input type="text" path="id" name="id" maxlength="20"/></td>
+		</c:otherwise>
+		</c:choose>
+		</tr>
 
-
-   
-
-<%-- <h2><center>ADD CATEGORY</center></h2> --%>
-<%-- <c:url var="addAction"  value="/category/add"></c:url> --%>
-
-<%-- <form:form action="${addAction }" commandName="category"> --%>
-<!-- <table class="table table-condensed"> -->
-<!-- 	<tr bgcolor=#F0F8FF> -->
-<%-- 		<td><form:label style="color:#000000" path="id"><spring:message text="ID"/></form:label></td> --%>
+	<tr>
+		<form:input path="id" hidden="true"/>
+		<td>Product Name</td>
+		<td><form:input type="text" path="name" name="name" maxlength="50" /></td>
+	</tr>		
 		
+	<tr>
+		<td>Product Price</td>
+		<td><form:input type="text" path="price" name="price" maxlength="5" /></td>
+	</tr>
+	
+	<tr>
+		<td>Product Description</td>
+		<td><form:input type="text" path="description" name="description" maxlength="100" /></td>
+	</tr>
+	
+	<tr>
+		<td>Category List</td>
+		<td><form:select path="category.name" items="${categoryList}" itemValue="name" itemLabel="name"></form:select></td>
+	</tr>
+
+	<tr>
+		<td>Supplier List</td>
+		<td><form:select path="supplier.name" items="${supplierList}" itemValue="name" itemLabel="name"></form:select></td>
+	</tr>
+
+
+	
+	<tr>
+		<td>Product Image</td>
+		<td><form:input type="file" path="image" name="image"/></td>
+	</tr>
+	
+	<tr>
+	<td>
+		<c:if test="${!empty product.name }">
+		<input  type="submit" value="<spring:message text="Edit Product"/>"/> 
+		</c:if> 
+
+		<c:if test="${empty product.name }"> 
+ 			<input type="submit" value="<spring:message text="Add Product"/>"/> 
+		</c:if> 
+		</td>
+	</tr>
 		
-<%-- 		<c:choose> --%>
-<%-- 			<c:when test="${!empty category.id }"> --%>
-<%-- 				<td><form:input style="background-color:#F5F5DC;border:0.25px solid black" path="id" disabled="true" readonly="true"/></td> --%>
-<%-- 			</c:when> --%>
-<%-- 			<c:otherwise> --%>
-<%-- 				<td><form:input style="background-color:#F5F5DC;border:0.25px solid black" path="id"  pattern=".{4,7}" required="true" title="id should be between 4 to 7 characters"/></td> --%>
-<%-- 				</c:otherwise> --%>
-<%-- 				</c:choose> --%>
-<!-- 				</tr> -->
+		</table>
+	</form:form>
+	
+		<c:if test="${!empty productList}">
+		<table width=100% cellpadding="5px">
+			<tr>
+				<th width="80">Product ID</th>
+				<th width="120">Product Name</th>
+				<th width="120">Product Price</th>
+				<th width="120">Description</th>
+				<th width="120">Category ID</th>
+				<th width="120">Supplier  ID</th>
 				
-<!-- 				<tr bgcolor="#F0F8FF">  -->
-<%-- 				<form:input path="id" hidden="true"/> --%>
+				<th>Image</th>
+				<th width="60">Edit</th>
+				<th width="60">Delete</th>
 				
-<%-- 				<td><form:label style="color:#000000" path="name"> <spring:message text="name"/></form:label></td> --%>
-<%--         		<td><form:input style="background-color:#F5F5DC;border:0.25px solid black" path="name" required="true" /></td>  --%>
-<!-- 				</tr> -->
-				
-<!-- 				<tr bgcolor="#F0F8FF"> -->
-<%-- 				<td><form:label style="color:#000000" path="description" ><spring:message text="description"/></form:label></td> --%>
-<%-- 				<td><form:input style="background-color:#F5F5DC;border:0.25px solid black" path="description" required="true"/></td> --%>
-<!-- 				</tr> -->
-				
-<!-- 				<tr bgcolor="#F0F8FF"> -->
-<%-- 				<td align="right" colspan="2"><c:if test="${!empty category.name }"> --%>
-<%-- 									<input style= "align:middle" class="btn btn-primary btn-md" type="submit" value="<spring:message text="Edit Category"/>"/> --%>
-<%-- 								</c:if> --%>
-<%-- 								<c:if test="${empty category.name }"> --%>
-<%-- 									<input style= "align:middle"  class="btn btn-primary btn-md" type="submit" value="<spring:message text="Add Category"/>"/> --%>
-<%-- 								</c:if> --%>
-<!-- 				</td> -->
-<!-- 				</tr> -->
-<!-- </table> -->
-<%-- </form:form> --%>
-
-<br>
-<div class="container">
-
-<h3><center>PRODUCT LIST</center></h3>
-<br>
-<c:if test="${!empty productList}">
-	<table  class="table" align="center" bordercolor="#800080" BORDER=10>
-			<tr bgcolor="#F0F8FF">
-				<th style="color:black" width="125" bgcolor="#F0F8FF" align="center">PRODUCT ID</th>
-				<th style="color:black" width="125" align="center">PRODUCT NAME</th>
-				<th style="color:black" width="190" align="center">PRODUCT DESCRIPTION</th>
-				<th style="color:black" width="100" align="center">EDIT</th>
-				<th style="color:black" width="100" align="center">DELETE</th>
 			</tr>
-					<c:forEach items="${productList}" var="product">
-				<tr bgcolor="#FFFFFF">
-					<td  style="color:#000000;font-size:120%" align="center">${product.id}</td>
-					<td  style="color:#000000;font-size:120%" align="center">${product.name}</td>
-					<td style="color:#000000;font-size:120%" align="center">${product.description}</td>
-					<td style="color:#000000;font-size:120%" align="center"><a href="<c:url value='product/edit/${product.id}' />"><button type="button" class="btn btn-warning">Edit</button></a></td>
-					<td style="color:#000000;font-size:120%" align="center"><a href="<c:url value='product/remove/${product.id}' />"><button type="button" class="btn btn-danger">Delete</button></a></td>
+			<c:forEach items="${productList}" var="product">
+				<tr>
+					<td align="left">${product.id}</td>
+					<td align="left">${product.name}</td>
+					<td align="left">${product.price}</td>
+					<td align="left">${product.description}</td>
+					<td align="left">${product.category_id}</td>
+					<td align="left">${product.supplier_id}</td>
+					
+					<td align="center"><img src="<c:url value="/resources/images/${product.id}.jpg"/>" width="240" height="240"/></td>
+					<td align="center"><a href="<c:url value='product_edit-${product.id}'/>">EDIT</a></td>
+					<td align="center"><a href="<c:url value='product_delete-${product.id}'/>">DELETE</a></td>
 				</tr>
 			</c:forEach>
 		</table>
 	</c:if>
-	</div>
 
 
 

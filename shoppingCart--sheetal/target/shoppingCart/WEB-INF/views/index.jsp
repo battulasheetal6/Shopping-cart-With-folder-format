@@ -9,20 +9,44 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+      
+     <style>
+  .carousel-inner > .item > img,
+  .carousel-inner > .item > a > img {
+      width: 100%;
+      margin: auto;
+  }
+  </style>
+
 </head>
 <body>
 <nav class="navbar navbar-inverse">
   <div class="container-fluid">
     <div class="navbar-header">
-      <a class="navbar-brand" href="#">JewelleryCart</a>
+      <a class="navbar-brand" href="#">AllSheNeeds!!</a>
     </div>
     <ul class="nav navbar-nav">
-      <li class="active"><a href="#">Home</a></li>
+      <li  class="active"><a  class="glyphicon glyphicon-home" style="font-size: 18px; href="#">Home</a></li>
   
-      <li><a href="#">About Us</a></li>
       
-       <li><a class="fa fa-address-book" style="font-size: 18px;color:red;" href="#">Contact Us</a></li>
+       
+       <li><a class="fa fa-address-book" style="font-size: 18px;" href="contact">Contact Us</a></li>
+   
+   
+   <c:forEach items="${categoryList}" var="category">
+      <li class="dropdown">
+      <a class="dropdown-toggle" data-toggle="dropdown" href=${category.name}>${category.name}<span class="caret"></span> </a>
+      <ul class="dropdown-menu">
+      <c:forEach items="${category.products}" var="product">
+      <li><a style="color:#000000" href="<c:url value='product_get-${product.id}'/>"> ${product.name} </a>
+    
+     </c:forEach>
+       <li><a style="color:#F5F5DC" href="#"></a></li>
+     </ul>
+      </li>       
+      </c:forEach>
+   
    
    
    <li class="divider-vertical"></li>
@@ -39,8 +63,8 @@
         </ul>
        <ul class="nav navbar-nav navbar-right">
        <c:if test="${pageContext.request.userPrincipal.name  == null}">
-       <li ><a  style="color:#F5F5DC;margin:0px 0px 0px 0px" href="<c:url value="/login" />"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
-       <li ><a  style="color:#F5F5DC;margin:0px 0px 0px 0px" href="<c:url value="register" />"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+       <li ><a  style="color:#F5F5DC;margin:0px 0px 0px 0px" href="<c:url value="/login" />"><span class="glyphicon glyphicon-log-in" style="font-size: 18px;" ></span> Login</a></li>
+       <li ><a  style="color:#F5F5DC;margin:0px 0px 0px 0px" href="<c:url value="register" />"><span class="glyphicon glyphicon-user" style="font-size: 18px;" ></span> Sign Up</a></li>
        </c:if>
    </ul>
        
@@ -83,25 +107,9 @@
     <div class="item">
       <img src="<c:url value="/resources/images/img4.jpg"/>" alt="Flower">
       <div class="carousel-caption">
+         </div>
      
-      </div>
-    </div>
-     <div class="item">
-      <img src="<c:url value="/resources/images/img6.jpg"/>" alt="Chania">
-      <div class="carousel-caption">
-      </div>
-      </div>
-      
-     <div class="item">
-      <img src="<c:url value="/resources/images/img7.jpg"/>" alt="Chania">
-      <div class="carousel-caption">
-      </div>
-      </div>
-<div class="item">
-      <img src="<c:url value="/resources/images/abc.jpg"/>" alt="Chania">
-      <div class="carousel-caption">
-      </div>
-      </div>
+     
 
 </div>
   <!-- Left and right controls -->

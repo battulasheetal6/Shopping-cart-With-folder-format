@@ -11,8 +11,17 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Category..</title>
+<style>
+body{
+background-image: url(resources/images/bgk02.jpg); 
+background-size:     cover;                      
+    background-repeat:   no-repeat;
+    }
+</style>
+
 </head>
 <body>
+
 
 <c:url var="addAction"  value="/category/add"></c:url>
 
@@ -28,14 +37,14 @@
 				</c:choose>
      <br><br>
      
-     <form:input path="id" hidden="true"/>
+     <form:input path="id"  align="left" hidden="true"/>
     
-    <form:label style="color:#000000" path="name"><spring:message text="NAME"/></form:label>
+  <form:label style="color:black" align="center" path="name"><spring:message text="NAME"/></form:label>
     <form:input type="text" name="name" path="name"/><br>
     
     <br><br>
     
-    <form:label style="color:#000000" path="description"><spring:message text="DESCRIPTION"/></form:label>
+    <form:label style="color:#000000"  align="right" path="description"><spring:message text="DESCRIPTION"/></form:label>
     <form:input type="text" name="description" path="description"/><br>
     
     <br><br>
@@ -75,7 +84,7 @@
 <!-- 				<tr bgcolor="#F0F8FF">  -->
 <%-- 				<form:input path="id" hidden="true"/> --%>
 				
-<%-- 				<td><form:label style="color:#000000" path="name"> <spring:message text="name"/></form:label></td> --%>
+<%-- 				<td><form:label style="color:black" path="name"> <spring:message text="name"/></form:label></td> --%>
 <%--         		<td><form:input style="background-color:#F5F5DC;border:0.25px solid black" path="name" required="true" /></td>  --%>
 <!-- 				</tr> -->
 				
@@ -102,7 +111,7 @@
 <h3><center>CATEGORY LIST</center></h3>
 <br>
 <c:if test="${!empty categoryList}">
-	<table  class="table" align="center" bordercolor="#800080" BORDER=10>
+	<table  class="table" align="center" bordercolor="black" BORDER=8>
 			<tr bgcolor="#F0F8FF">
 				<th style="color:black" width="125" bgcolor="#F0F8FF" align="center">CATEGORY ID</th>
 				<th style="color:black" width="125" align="center">CATEGORY NAME</th>

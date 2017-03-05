@@ -10,7 +10,14 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
+<title>suppliers..</title>
+<style>
+body{
+background-image: url(resources/images/bgk02.jpg); 
+background-size:     cover;                      
+    background-repeat:   no-repeat;
+    }
+</style>
 </head>
 <body>
 
@@ -98,7 +105,7 @@
 <h3><center>SUPPLIER LIST</center></h3>
 <br>
 <c:if test="${!empty supplierList}">
-	<table  class="table" align="center" bordercolor="#800080" BORDER=10>
+	<table  class="table" align="center" bordercolor="black" BORDER=8>
 			<tr bgcolor="#F0F8FF">
 				<th style="color:black" width="125" bgcolor="#F0F8FF" align="center">SUPPLIER ID</th>
 				<th style="color:black" width="125" align="center">SUPPLIER NAME</th>

@@ -5,10 +5,24 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Admin page..</title>
+<style>
+body{
+background-image: url(resources/images/bgk04.jpg); 
+background-size:     cover;                      
+    background-repeat:   no-repeat;
+    }
+</style>
 </head>
 <body>
-<a href="category">CATEGORY</a>
-<a href="supplier">SUPPLIER</a>
-<a href="product">PRODUCT</a>
+
+<br>
+<br>
+<br>
+<br>
+
+
+<h1 style="text-align:center ; font-size: 70px"> <a href="category">CATEGORY</a></h1>
+<h1 style="text-align:center; font-size: 70px" > <a href="supplier">SUPPLIER</a></h1>
+<h1 style="text-align:center; font-size: 70px"><a href="product">PRODUCT</a></h1>
 </body>
 </html>

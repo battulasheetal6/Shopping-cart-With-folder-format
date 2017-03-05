@@ -1,7 +1,11 @@
 package com.niit.shoppingCart.model;
 
+import java.util.Set;
+
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 import org.springframework.stereotype.Component;
 
@@ -11,10 +15,22 @@ import org.springframework.stereotype.Component;
 public class Category 
 {
 	
-	@Id
+	
 	private String id;
 	private String name;
 	private String description;
+	
+	private Set<Product> products;
+	
+	@OneToMany(mappedBy="category",fetch=FetchType.EAGER)
+	public Set<Product> getProducts() {
+		return products;
+	}
+	public void setProducts(Set<Product> products) {
+		this.products = products;
+	}
+	
+	@Id
 	public String getId() {
 		return id;
 	}

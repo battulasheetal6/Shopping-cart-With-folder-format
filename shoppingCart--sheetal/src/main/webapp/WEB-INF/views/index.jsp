@@ -29,9 +29,24 @@
     <ul class="nav navbar-nav">
       <li  class="active"><a  class="glyphicon glyphicon-home" style="font-size: 18px; href="#">Home</a></li>
   
-      <li><a class="glyphicon glyphicon-book" style="font-size: 18px;" href="#">AboutUs</a></li>
+      
        
-       <li><a class="fa fa-address-book" style="font-size: 18px;" href="#">Contact Us</a></li>
+       <li><a class="fa fa-address-book" style="font-size: 18px;" href="contact">Contact Us</a></li>
+   
+   
+   <c:forEach items="${categoryList}" var="category">
+      <li class="dropdown">
+      <a class="dropdown-toggle" data-toggle="dropdown" href=${category.name}>${category.name}<span class="caret"></span> </a>
+      <ul class="dropdown-menu">
+      <c:forEach items="${category.products}" var="product">
+      <li><a style="color:#000000" href="<c:url value='product_get-${product.id}'/>"> ${product.name} </a>
+    
+     </c:forEach>
+       <li><a style="color:#F5F5DC" href="#"></a></li>
+     </ul>
+      </li>       
+      </c:forEach>
+   
    
    
    <li class="divider-vertical"></li>
